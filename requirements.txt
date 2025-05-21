@@ -208,7 +208,6 @@ python-slugify==8.0.1
 python-telegram-bot==13.5
 pytz==2023.3
 pytzdata==2020.1
-pywin32==306
 PyYAML==6.0.1
 pyzmq==25.1.0
 referencing==0.30.2
@@ -242,9 +241,6 @@ SQLAlchemy-Utils==0.41.1
 sqlparse==0.4.4
 stack-data==0.6.2
 starlette==0.27.0
-streamlit==1.30.0
-streamlit-chat==0.1.1
-streamlit_mic_recorder==0.0.8
 sympy==1.12
 tabulate==0.9.0
 tenacity==8.2.3
