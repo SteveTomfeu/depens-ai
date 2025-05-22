@@ -116,5 +116,5 @@ if __name__ == "__main__":
      bot_thread = threading.Thread(target=main)
      bot_thread.start()
      #Démarrage du serveur Flask
-     app.run(host='0.0.0.0', port=10000)
+     app.run(host='0.0.0.0', port=80)
 
