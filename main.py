@@ -8,7 +8,6 @@ from dotenv import load_dotenv
 from deepseek import structured_data, text_to_sql, reformule_answer
 from sql_utils import save_to_sql, execute_query
 from flask import Flask
-app = Flask(__name__)
 
 load_dotenv()
 speech_key = os.getenv("SPEECH_KEY")
@@ -21,10 +20,7 @@ SAVE_FOLDER = "voice_messages"
 # Créer le dossier s'il n'existe pas
 os.makedirs(SAVE_FOLDER, exist_ok=True)
 
-@app.route('/')
-def home():
-    return "Bot en marche!"
-
+app = Flask(__name__)
 def start(update: Update, context: CallbackContext):
     update.message.reply_text('Envoyez-moi un message vocal !')
 
@@ -114,8 +110,11 @@ def main():
     updater.idle()
 
 if __name__ == "__main__":
-    from telegram.ext import Updater
-    updater = Updater(TOKEN)
-    updater.start_polling()
-    app.run(host='0.0.0.0', port=10000)
-    main()
+#    main()
+#Démarrage du bot dans unthread séparé
+     import threading
+     bot_thread = threading.Thread(target=main)
+     bot_thread.start()
+     #Démarrage du serveur Flask
+     app.run(host='0.0.0.0', port=10000)
+
